@@ -1,0 +1,5 @@
+env: "local" #prod
+token_ttl: 1h
+grpc:
+  port: 3001
+  timeout: 10h
