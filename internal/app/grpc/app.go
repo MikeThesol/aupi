@@ -21,9 +21,9 @@ func (a *App) MustRun() {
 	}
 }
 
-func New(log *slog.Logger, port int, ttlToken time.Duration) *App {
+func New(log *slog.Logger, port int, ttlToken time.Duration, auth authgrpc.Auth) *App {
 	gRPCServer := grpc.NewServer()
-	authgrpc.Register(gRPCServer)
+	authgrpc.Register(gRPCServer, auth)
 	return &App{
 		log:        log,
 		gRPCServer: gRPCServer,
